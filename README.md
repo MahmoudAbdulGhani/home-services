@@ -1,16 +1,62 @@
-# React + Vite
+# Home Services Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive Home Services landing page built with React, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+This project was developed by implementing a professional Figma UI design and converting it into a fully responsive web application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Figma Design
 
-## React Compiler
+Original Design:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+https://www.figma.com/proto/XG6hWGb51vw6XBhUuwMghG/Home-Services---Website---UI-Kit--Community-?node-id=806-5605&t=w4BNmtAT9avanMvT-0&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Responsive design for Desktop, Tablet, and Mobile
+* Pixel-perfect implementation based on the provided Figma design
+* Modern and clean UI
+* Mobile sidebar navigation
+* Service showcase sections
+* Call-to-action components
+* Optimized layout using Tailwind CSS
+
+## Technologies Used
+
+* React
+* Vite
+* Tailwind CSS
+* JavaScript
+
+## Screenshots
+
+### Desktop View
+
+![Desktop View](./screenshots/desktop-full-page.png)
+
+### Mobile View
+
+![Mobile View](./screenshots/mobile-full-page.png)
+
+## Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/MahmoudAbdulGhani/home-services.git
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run the development server
+
+```bash
+npm run dev
+```
+
+## Author
+
+Mahmoud Hussein Abdul Ghani
