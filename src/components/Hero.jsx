@@ -27,7 +27,7 @@ export default function Hero() {
         </div>
 
         {/* CENTER HOVERING CONTENT CONTAINER */}
-        <div className="w-full lg:w-[50%] mx-auto flex flex-col justify-between grow px-4 text-center z-10">
+        <div className="w-full max-w-[720px] lg:w-[50%] mx-auto flex flex-col justify-between grow px-4 text-center z-10">
           
           {/* Main Hero Header and CTA Button Box */}
           <div className="my-auto flex flex-col items-center">
@@ -39,7 +39,7 @@ export default function Hero() {
               <span>Improvements</span>
             </p>
 
-            <h1 className="text-[34px] md:text-[46px] lg:text-[50px] font-bold leading-[42px] md:leading-[54px] lg:leading-[60px] tracking-tight mt-6 text-white max-w-xl">
+            <h1 className="text-[26px] sm:text-[34px] md:text-[46px] lg:text-[50px] font-bold leading-[42px] md:leading-[54px] lg:leading-[60px] tracking-tight mt-6 text-white max-w-xl">
               Need improvement <br />
               or repair your home? <br />
               we can help!
@@ -57,24 +57,100 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* UPGRADED BUTTON SIZE WITH PRECISE LOOK */}
-            <button className="group mt-8 bg-[#15B2F5] text-white font-bold text-[16px] px-3 py-2.5 rounded-full inline-flex items-center justify-center gap-2 w-auto hover:bg-[#139ed9] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer select-none">
-              <span className="tracking-wide text-[20px]">Call Us Now</span>
+            {/* RESTORED BUTTON FROM BASE CODE WITH SMOOTH MOBILE RESPONSIVENESS */}
+            <button className="group mt-8 bg-[#15B2F5] text-white font-bold px-6 sm:px-7 lg:px-3 py-2.5 rounded-full inline-flex items-center justify-center gap-2 w-auto hover:bg-[#139ed9] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer select-none">
+              <span className="tracking-wide text-[16px] sm:text-[18px] lg:text-[20px]">Call Us Now</span>
               <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <img 
                   src={phoneIcon} 
                   alt="phone" 
                   className="w-4 h-4 object-contain transition-transform duration-300 group-hover:rotate-12" 
-                  onError={(e) => { e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23142257'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E" }} 
+                  onError={(e) => { e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23142257'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36(1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E" }} 
                 />
               </div>
             </button>
           </div>
 
           {/* 4 BOTTOM VALUE PROPS FEATURES */}
-          {/* FIXED: Scaled layout container to precisely fit the inside column alignment of images 1 & 2 */}
-          <div className="w-full lg:max-w-[56%] mx-auto mt-auto pb-2">
-            <div className="flex justify-center items-center text-[13px] font-semibold text-slate-300 flex-wrap lg:flex-nowrap gap-y-4">
+          <div className="w-full lg:max-w-[56%] mx-auto mt-12 lg:mt-auto pb-2">
+            
+            {/* RESPONSIVE MOBILE/TABLET 2x2 GRID (With lightened central '+' cross dividers) */}
+            <div className="grid grid-cols-2 lg:hidden relative">
+              
+              {/* Central Horizontal Line - Lightened from its halves towards edges */}
+              <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none transform -translate-y-1/2"></div>
+              
+              {/* Central Vertical Line - Lightened from its halves towards edges */}
+              <div className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-gradient-to-b from-transparent via-white/20 to-transparent pointer-events-none transform -translate-x-1/2"></div>
+
+              {/* Satisfaction */}
+              <div className="flex flex-col items-center text-center py-6 pr-2">
+                <div className="w-10 h-10 rounded-full bg-[#1b2d6e] flex items-center justify-center mb-3">
+                  <img
+                    src={new URL("../assets/icons/Guarantee.png", import.meta.url).href}
+                    alt="Guarantee"
+                    className="w-5 h-5"
+                  />
+                </div>
+                <span className="text-white text-[15px] font-medium leading-6">
+                  Satisfaction
+                  <br />
+                  Guarantee
+                </span>
+              </div>
+
+              {/* 24H */}
+              <div className="flex flex-col items-center text-center py-6 pl-2">
+                <div className="w-10 h-10 rounded-full bg-[#1b2d6e] flex items-center justify-center mb-3">
+                  <img
+                    src={new URL("../assets/icons/Clock.png", import.meta.url).href}
+                    alt="Clock"
+                    className="w-5 h-5"
+                  />
+                </div>
+                <span className="text-white text-[15px] font-medium leading-6">
+                  24H
+                  <br />
+                  Availability
+                </span>
+              </div>
+
+              {/* Local */}
+              <div className="flex flex-col items-center text-center py-6 pr-2">
+                <div className="w-10 h-10 rounded-full bg-[#1b2d6e] flex items-center justify-center mb-3">
+                  <img
+                    src={new URL("../assets/icons/Map.png", import.meta.url).href}
+                    alt="Local"
+                    className="w-5 h-5"
+                  />
+                </div>
+                <span className="text-white text-[15px] font-medium leading-6">
+                  Local US
+                  <br />
+                  Professional
+                </span>
+              </div>
+
+              {/* Flexible */}
+              <div className="flex flex-col items-center text-center py-6 pl-2">
+                <div className="w-10 h-10 rounded-full bg-[#1b2d6e] flex items-center justify-center mb-3">
+                  <img
+                    src={new URL("../assets/icons/Calendar.png", import.meta.url).href}
+                    alt="Calendar"
+                    className="w-5 h-5"
+                  />
+                </div>
+                <span className="text-white text-[15px] font-medium leading-6">
+                  Flexible
+                  <br />
+                  Appointments
+                </span>
+              </div>
+
+            </div>
+
+            {/* DESKTOP ROW VIEW - Borders completely clean with mockup gradient shadow indicators */}
+            <div className="hidden lg:flex justify-center items-center text-[13px] font-semibold text-slate-300 flex-wrap lg:flex-nowrap gap-y-4">
               
               {/* Feature 1: Satisfaction Guarantee */}
               <div className="flex flex-row items-center gap-3 px-4 grow justify-center lg:justify-start text-left">
@@ -88,8 +164,8 @@ export default function Hero() {
                 <span className="leading-tight text-white font-semibold text-[14px] md:text-[15px]">Satisfaction<br />Guarantee</span>
               </div>
 
-              {/* Raised separating lines via -mt-2 */}
-              <div className="hidden lg:block w-[1px] h-8 bg-white/10 shrink-0 -mt-2"></div>
+              {/* Fading Side Shadow Line 1 */}
+              <div className="hidden lg:block w-[1px] h-10 bg-gradient-to-b from-transparent via-white/15 to-transparent shrink-0 -mt-2"></div>
 
               {/* Feature 2: 24H Availability */}
               <div className="flex flex-row items-center gap-3 px-4 grow justify-center lg:justify-start text-left">
@@ -103,7 +179,8 @@ export default function Hero() {
                 <span className="leading-tight text-white font-semibold text-[14px] md:text-[15px]">24H<br />Availability</span>
               </div>
 
-              <div className="hidden lg:block w-[1px] h-8 bg-white/10 shrink-0 -mt-2"></div>
+              {/* Fading Side Shadow Line 2 */}
+              <div className="hidden lg:block w-[1px] h-10 bg-gradient-to-b from-transparent via-white/15 to-transparent shrink-0 -mt-2"></div>
 
               {/* Feature 3: Local US Professional */}
               <div className="flex flex-row items-center gap-3 px-4 grow justify-center lg:justify-start text-left">
@@ -117,7 +194,8 @@ export default function Hero() {
                 <span className="leading-tight text-white font-semibold text-[14px] md:text-[15px]">Local US<br />Professional</span>
               </div>
 
-              <div className="hidden lg:block w-[1px] h-8 bg-white/10 shrink-0 -mt-2"></div>
+              {/* Fading Side Shadow Line 3 */}
+              <div className="hidden lg:block w-[1px] h-10 bg-gradient-to-b from-transparent via-white/15 to-transparent shrink-0 -mt-2"></div>
 
               {/* Feature 4: Flexible Appointments */}
               <div className="flex flex-row items-center gap-3 px-4 grow justify-center lg:justify-start text-left">
