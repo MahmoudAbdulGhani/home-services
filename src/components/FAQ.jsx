@@ -33,11 +33,84 @@ export default function FAQ() {
   };
 
   return (
-    <section className="bg-white py-24 px-6 md:px-12 lg:px-24 select-none w-full flex items-center justify-center">
-      <div className="max-w-[1240px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <section className="bg-white py-24 px-6 md:px-12 lg:px-24 select-none w-full flex items-center justify-center faq-responsive-section">
+      
+      {/* 100% Isolated Fluid Responsive Overrides */}
+      <style>{`
+        @media (max-width: 1023px) {
+          .faq-responsive-section {
+            padding-top: 48px !important;
+            padding-bottom: 48px !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+          }
+          .faq-grid-layout {
+            grid-template-columns: 1fr !important;
+            gap: 36px !important;
+          }
+          .faq-heading-col {
+            text-align: center !important;
+            position: static !important;
+          }
+          .faq-heading-col h2 {
+            font-size: 30px !important;
+            line-height: 38px !important;
+            margin-bottom: 12px !important;
+            text-align: center !important;
+          }
+          .faq-heading-col p {
+            font-size: 16px !important;
+            color: #64748B !important;
+          }
+          .faq-accordion-stack {
+            gap: 16px !important;
+          }
+          
+          /* Custom open state wrapper mimicking "FAQ (1).png" layout backgrounds */
+          .faq-item-panel-open {
+            background-color: #F4F6F9 !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+            padding-top: 24px !important;
+            padding-bottom: 24px !important;
+            border-radius: 16px !important;
+            border: none !important;
+          }
+          
+          /* Custom closed state container layout settings */
+          .faq-item-panel-closed {
+            background-color: transparent !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            padding-top: 12px !important;
+            padding-bottom: 12px !important;
+            border: none !important;
+          }
+          
+          .faq-trigger-btn span {
+            font-size: 17px !important;
+            line-height: 24px !important;
+            color: #1E293B !important;
+            font-weight: 700 !important;
+          }
+          
+          .faq-content-body p {
+            font-size: 15px !important;
+            line-height: 24px !important;
+            color: #64748B !important;
+            max-width: 100% !important;
+          }
+          
+          .faq-arrow-icon {
+            color: #1D4ED8 !important;
+          }
+        }
+      `}</style>
+
+      <div className="max-w-[1240px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start faq-grid-layout">
         
         {/* LEFT SIDE: Heading Content Area */}
-        <div className="lg:col-span-5 sticky top-10 text-left">
+        <div className="lg:col-span-5 sticky top-10 text-left faq-heading-col">
           <h2 className="text-[38px] md:text-[44px] lg:text-[48px] font-bold text-[#0F172A] leading-[44px] md:leading-[50px] lg:leading-[54px] tracking-tight mb-5">
             Frequently Asked Questions
           </h2>
@@ -53,7 +126,7 @@ export default function FAQ() {
         </div>
 
         {/* RIGHT SIDE: Interactive Accordion Rows */}
-        <div className="lg:col-span-7 w-full flex flex-col gap-3">
+        <div className="lg:col-span-7 w-full flex flex-col gap-3 faq-accordion-stack">
           {faqData.map((faq, index) => {
             const isOpen = openIndex === index;
             
@@ -62,21 +135,21 @@ export default function FAQ() {
                 key={index}
                 className={`w-full transition-all duration-300 rounded-[16px] ${
                   isOpen 
-                    ? "bg-[#F1F5F9]/60 px-6 py-6 border border-transparent" 
-                    : "bg-white px-6 py-5 border-b border-slate-100"
+                    ? "bg-[#F1F5F9]/60 px-6 py-6 border border-transparent faq-item-panel-open" 
+                    : "bg-white px-6 py-5 border-b border-slate-100 faq-item-panel-closed"
                 }`}
               >
                 {/* Accordion Trigger Header Row */}
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className="w-full flex items-center justify-between text-left gap-4 focus:outline-none group"
+                  className="w-full flex items-center justify-between text-left gap-4 focus:outline-none group faq-trigger-btn"
                 >
                   <span className="text-[16px] md:text-[17.5px] font-bold text-[#1E293B] tracking-tight group-hover:text-[#00A3E0] transition-colors duration-200">
                     {faq.question}
                   </span>
                   
                   {/* Dynamic Accordion Arrow Element */}
-                  <span className={`shrink-0 transition-transform duration-300 ${isOpen ? "text-[#1D4ED8]" : "text-[#1E293B]"}`}>
+                  <span className={`shrink-0 transition-transform duration-300 faq-arrow-icon ${isOpen ? "text-[#1D4ED8]" : "text-[#1E293B]"}`}>
                     {isOpen ? (
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-[18px] h-[18px]">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
@@ -91,7 +164,7 @@ export default function FAQ() {
 
                 {/* Collapsible Answer Block */}
                 <div 
-                  className={`grid transition-all duration-300 ease-in-out text-left overflow-hidden ${
+                  className={`grid transition-all duration-300 ease-in-out text-left overflow-hidden faq-content-body ${
                     isOpen ? "grid-rows-[1fr] opacity-100 mt-3.5" : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
