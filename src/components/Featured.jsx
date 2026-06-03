@@ -37,14 +37,82 @@ export default function FeaturedBenefits() {
     },
     {
       icon: commitmentIcon,
-      title: "100% Commitment-Free",
+      title: "Expertise and Experience",
       desc: "You are free to ask us about the problems you are facing. We offer a no-commitment approach to put your mind at ease",
     },
   ];
 
   return (
-    <section className="bg-white py-20 px-10 md:px-12 lg:px-17 select-none">
+    <section className="bg-white py-20 px-10 md:px-12 lg:px-17 select-none benefits-responsive-section">
       
+      {/* 100% Isolated Mobile-Only CSS Overrides */}
+      <style>{`
+        @media (max-width: 1023px) {
+          .benefits-responsive-section {
+            padding-top: 32px !important;
+            padding-bottom: 32px !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+          .benefits-core-wrapper {
+            clip-path: none !important;
+            border-radius: 24px !important;
+            padding-top: 48px !important;
+            padding-bottom: 48px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
+          .benefits-header-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            gap: 16px !important;
+            border-bottom: none !important;
+            pb: 0 !important;
+            margin-bottom: 48px !important;
+          }
+          .benefits-header-grid h2 {
+            font-size: 26px !important;
+            line-height: 34px !important;
+          }
+          .benefits-header-right-col {
+            padding-top: 0 !important;
+          }
+          .benefits-header-right-col p {
+            font-size: 14px !important;
+            line-height: 1.6 !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+          }
+          .benefits-features-display-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 40px !important;
+          }
+          .benefits-feature-card {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            gap: 12px !important;
+            max-w: 320px !important;
+          }
+          .benefits-feature-text-block {
+            text-align: center !important;
+            padding-top: 0 !important;
+          }
+          .benefits-feature-text-block h3 {
+            font-size: 18px !important;
+            margin-bottom: 10px !important;
+          }
+          .benefits-feature-text-block p {
+            font-size: 14px !important;
+            line-height: 1.6 !important;
+            color: rgba(255, 255, 255, 0.65) !important;
+          }
+        }
+      `}</style>
+
       {/* PERFECT PIXEL CLIPPATH DEF FOR SIDE ANGULAR CHAMFERS */}
       <svg className="absolute w-0 h-0" width="0" height="0">
         <defs>
@@ -67,12 +135,12 @@ export default function FeaturedBenefits() {
 
       {/* CORE WRAPPER FRAME BOX */}
       <div 
-        className="max-w-[1500px] w-full mx-auto bg-[#142257] text-white py-24 px-12 md:px-20 lg:px-28"
+        className="max-w-[1500px] w-full mx-auto bg-[#142257] text-white py-24 px-12 md:px-20 lg:px-28 benefits-core-wrapper"
         style={{ clipPath: "url(#accurateChamferMask)" }}
       >
         
         {/* TOP INTRO DUAL GRID HEADER */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start border-b border-white/10 pb-12 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start border-b border-white/10 pb-12 mb-12 benefits-header-grid">
           
           {/* Main Title Heading Layout */}
           <div className="lg:col-span-7">
@@ -82,7 +150,7 @@ export default function FeaturedBenefits() {
           </div>
 
           {/* Sub-paragraph info block side - shifted slightly down from the baseline */}
-          <div className="lg:col-span-5 pt-10 lg:pt-10">
+          <div className="lg:col-span-5 pt-10 lg:pt-10 benefits-header-right-col">
             <p className="text-slate-300/80 text-[14.5px] md:text-[15px] leading-relaxed font-normal max-w-xl">
               No matter how big or small your work is, whether it's for the interior or 
               exterior of your home, we are ready to serve and help you solve your 
@@ -93,9 +161,9 @@ export default function FeaturedBenefits() {
         </div>
 
         {/* 2-COLUMN SYMMETRICAL FEATURES DISPLAY GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12 items-start benefits-features-display-grid">
           {features.map((item, idx) => (
-            <div key={idx} className="flex items-start gap-5">
+            <div key={idx} className="flex items-start gap-5 benefits-feature-card">
               
               {/* STATIONARY FLUSH IMAGE HOLDER BOX CONTAINER - Made bigger */}
               <div className="shrink-0 w-20 h-20 flex items-center justify-center">
@@ -107,7 +175,7 @@ export default function FeaturedBenefits() {
               </div>
 
               {/* RE-ALIGNED TEXT BLOCK ELEMENTS */}
-              <div className="flex flex-col text-left pt-1.5">
+              <div className="flex flex-col text-left pt-1.5 benefits-feature-text-block">
                 <h3 className="text-[19px] md:text-[20px] font-bold text-white tracking-tight mb-2">
                   {item.title}
                 </h3>
