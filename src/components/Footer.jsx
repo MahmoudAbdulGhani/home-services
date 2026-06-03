@@ -33,10 +33,11 @@ export default function Footer() {
         </div>
 
         {/* ───── MAIN FOOTER CONTENT ───── */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 pb-14 items-start text-left">
+        {/* Adjusted from complex grid columns to a fluid, bulletproof flex/grid mix */}
+        <div className="flex flex-col md:flex-row gap-10 md:gap-4 pb-14 justify-between items-start text-left w-full">
           
           {/* BRAND COLUMN */}
-          <div className="col-span-1 md:col-span-6 flex flex-col items-start">
+          <div className="w-full md:w-[45%] flex flex-col items-start shrink-0">
             <img
               src={logo}
               alt="HomePro Logo"
@@ -50,7 +51,7 @@ export default function Footer() {
             <div className="flex items-center gap-5 text-white/90">
               <a href="#youtube" className="hover:text-sky-100 transition-colors" aria-label="Youtube Channel">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-[18px] h-[18px]">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93 Ram.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
               </a>
               <a href="#instagram" className="hover:text-sky-100 transition-colors" aria-label="Instagram Profile">
@@ -79,10 +80,11 @@ export default function Footer() {
           </div>
 
           {/* LINK GROUPS COLUMNS */}
-          <div className="col-span-1 md:col-span-6 grid grid-cols-2 gap-4 md:justify-items-end w-full">
+          {/* Replaced absolute grid alignment with a split space-distribution container */}
+          <div className="w-full md:w-auto flex flex-row gap-12 sm:gap-20 md:gap-16 lg:gap-28 md:pr-4 justify-start md:justify-end">
             
             {/* COMPANY SYSTEM LINKS */}
-            <div className="flex flex-col items-start min-w-[120px]">
+            <div className="flex flex-col items-start min-w-[110px]">
               <h4 className="font-bold text-[16px] md:text-[17px] mb-5 text-white tracking-tight">
                 Company
               </h4>
@@ -95,7 +97,7 @@ export default function Footer() {
             </div>
 
             {/* LEGAL DATA LINKS */}
-            <div className="flex flex-col items-start min-w-[120px]">
+            <div className="flex flex-col items-start min-w-[110px]">
               <h4 className="font-bold text-[16px] md:text-[17px] mb-5 text-white tracking-tight">
                 Legal
               </h4>
