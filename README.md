@@ -30,6 +30,7 @@ https://www.figma.com/proto/XG6hWGb51vw6XBhUuwMghG/Home-Services---Website---UI-
 ## Screenshots
 
 ### Desktop View
+
 C:\Users\Admin\Desktop\home proj\home-services\src\Screenshots of the website\website screen.png
 ### Mobile View
 C:\Users\Admin\Desktop\home proj\home-services\src\Screenshots of the website\mobile screen.png
