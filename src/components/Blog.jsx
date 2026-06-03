@@ -31,11 +31,86 @@ export default function BlogInsights() {
   ];
 
   return (
-    <section className="bg-white text-[#F8FAFC] py-24 px-6 md:px-12 lg:px-20 select-none w-full flex flex-col items-center justify-center">
+    <section className="bg-white text-[#F8FAFC] py-24 px-6 md:px-12 lg:px-20 select-none w-full flex flex-col items-center justify-center blog-responsive-section">
+      
+      {/* 100% Isolated Responsive Scoped Styles */}
+      <style>{`
+        @media (max-width: 1023px) {
+          .blog-responsive-section {
+            padding-top: 48px !important;
+            padding-bottom: 48px !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+          }
+          .blog-responsive-section h2 {
+            font-size: 30px !important;
+            line-height: 38px !important;
+            margin-bottom: 12px !important;
+            color: #0F172A !important;
+          }
+          .blog-responsive-section p {
+            font-size: 15px !important;
+            line-height: 24px !important;
+            color: #64748B !important;
+          }
+          .blog-header-block {
+            margin-bottom: 40px !important;
+          }
+          .blog-grid-container {
+            grid-template-cols: 1fr !important;
+            gap: 40px !important;
+            margin-bottom: 40px !important;
+          }
+          .blog-card-article h3 {
+            font-size: 19px !important;
+            line-height: 26px !important;
+            color: #0F172A !important;
+            margin-bottom: 10px !important;
+          }
+          .blog-card-article p {
+            font-size: 14px !important;
+            line-height: 22px !important;
+            color: #64748B !important;
+            margin-bottom: 16px !important;
+          }
+          .blog-card-article span {
+            color: #64748B !important;
+          }
+          .blog-image-wrapper {
+            margin-bottom: 14px !important;
+            border-radius: 24px !important;
+          }
+          .blog-date-stamp {
+            margin-bottom: 10px !important;
+          }
+          
+          /* Mobile Tags Structural Truncation Engine matching "Blog (1).jpg" */
+          .blog-tag-item {
+            display: none !important;
+          }
+          .blog-tag-item:nth-child(1),
+          .blog-tag-item:nth-child(2) {
+            display: inline-block !important;
+          }
+          .blog-tag-ellipsis-placeholder {
+            display: inline-block !important;
+          }
+          
+          .blog-view-more-btn {
+            font-size: 18px !important;
+          }
+        }
+        @media (min-width: 1024px) {
+          .blog-tag-ellipsis-placeholder {
+            display: none !important;
+          }
+        }
+      `}</style>
+
       <div className="max-w-[1240px] w-full mx-auto flex flex-col items-center">
         
         {/* HEADER BLOCK */}
-        <div className="text-center max-w-[650px] mb-16 flex flex-col items-center">
+        <div className="text-center max-w-[650px] mb-16 flex flex-col items-center blog-header-block">
           <h2 className="text-[#1E293B] font-bold text-[36px] md:text-[44px] tracking-tight mb-4">
             Explore Insights in Our Blog
           </h2>
@@ -45,12 +120,12 @@ export default function BlogInsights() {
         </div>
 
         {/* INSIGHT CARDS GRID COMPONENT */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mb-14 blog-grid-container">
           {blogPosts.map((post, idx) => (
-            <article key={idx} className="flex flex-col group cursor-pointer text-left">
+            <article key={idx} className="flex flex-col group cursor-pointer text-left blog-card-article">
               
               {/* Card Aspect Ratio Wrapper Frame */}
-              <div className="w-full aspect-[16/10] rounded-[24px] overflow-hidden mb-3 bg-zinc-900 border border-zinc-800/40">
+              <div className="w-full aspect-[16/10] rounded-[24px] overflow-hidden mb-3 bg-zinc-900 border border-zinc-800/40 blog-image-wrapper">
                 <img 
                   src={post.image} 
                   alt={post.title} 
@@ -61,7 +136,7 @@ export default function BlogInsights() {
               {/* Card Meta Content Block */}
               <div className="flex flex-col px-1">
                 {/* Date stamp notation */}
-                <span className="text-slate-600 font-medium text-[13px] mb-3.5 block tracking-normal">
+                <span className="text-slate-600 font-medium text-[13px] mb-3.5 block tracking-normal blog-date-stamp">
                   {post.date}
                 </span>
 
@@ -80,11 +155,16 @@ export default function BlogInsights() {
                   {post.tags.map((tag, tagIdx) => (
                     <span 
                       key={tagIdx} 
-                      className="px-[14px] py-1.5 rounded-full bg-white text-[#0F172A] font-medium text-[12px] leading-none tracking-normal border border-slate-100 shadow-sm"
+                      className="px-[14px] py-1.5 rounded-full bg-[#F1F5F9] text-[#0F172A] font-medium text-[12px] leading-none tracking-normal border border-slate-100/50 shadow-sm blog-tag-item"
                     >
                       {tag}
                     </span>
                   ))}
+                  
+                  {/* Built-in Ellipsis Ellipse badge displayed strictly on mobile breakpoints */}
+                  <span className="px-[14px] py-1.5 rounded-full bg-[#F1F5F9] text-[#0F172A] font-medium text-[12px] leading-none tracking-normal border border-slate-100/50 shadow-sm blog-tag-ellipsis-placeholder">
+                    ...
+                  </span>
                 </div>
               </div>
 
@@ -93,7 +173,7 @@ export default function BlogInsights() {
         </div>
 
         {/* BOTTOM ACTION CTA BLUE INTERACTION OVERLAY */}
-        <button className="flex items-center gap-1.5 text-[#00A3E0] hover:text-[#0089BE] font-bold text-[20px] tracking-tight transition-colors duration-200  group py-2 px-4 rounded-lg focus:outline-none">
+        <button className="flex items-center gap-1.5 text-[#00A3E0] hover:text-[#0089BE] font-bold text-[20px] tracking-tight transition-colors duration-200 group py-2 px-4 rounded-lg focus:outline-none blog-view-more-btn">
           <span>View More</span>
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
