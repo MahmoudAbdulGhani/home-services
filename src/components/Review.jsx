@@ -39,7 +39,82 @@ export default function TrustReviews() {
   };
 
   return (
-    <section className="bg-white py-20 px-6 md:px-12 lg:px-20 select-none w-full flex flex-col items-center justify-center overflow-hidden">
+    <section className="bg-white py-20 px-6 md:px-12 lg:px-20 select-none w-full flex flex-col items-center justify-center overflow-hidden reviews-responsive-section">
+      
+      {/* 100% Isolated Fluid Responsive Overrides */}
+      <style>{`
+        @media (max-width: 1023px) {
+          .reviews-responsive-section {
+            padding-top: 48px !important;
+            padding-bottom: 48px !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+          }
+          .reviews-responsive-section h2 {
+            font-size: 32px !important;
+            line-height: 40px !important;
+            margin-bottom: 24px !important;
+          }
+          .reviews-divider {
+            display: none !important;
+          }
+          .reviews-carousel-row {
+            display: block !important;
+            margin-bottom: 32px !important;
+          }
+          .reviews-text-container {
+            max-width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+          .reviews-text-container p {
+            font-size: 17px !important;
+            line-height: 28px !important;
+            color: #475569 !important;
+          }
+          
+          /* Hide desktop layout navigation buttons from the text alignment block */
+          .reviews-carousel-row > button {
+            display: none !important;
+          }
+          
+          .reviews-meta-block {
+            margin-bottom: 32px !important;
+          }
+          
+          /* FIXED: Renders mobile controller actions wrapper row beneath the content block exactly as designed */
+          .reviews-mobile-controls-row {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 24px !important;
+            width: 100% !important;
+          }
+          .reviews-mobile-btn {
+            width: 50px !important;
+            height: 50px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: background-color 0.2s !important;
+          }
+          .reviews-mobile-btn-prev {
+            background-color: #E2E8F0 !important;
+            color: #64748B !important;
+          }
+          .reviews-mobile-btn-next {
+            background-color: #00A3E0 !important;
+            color: #FFFFFF !important;
+          }
+        }
+        @media (min-width: 1024px) {
+          .reviews-mobile-controls-row {
+            display: none !important;
+          }
+        }
+      `}</style>
+
       <div className="max-w-[1050px] w-full mx-auto flex flex-col items-center text-center">
         
         {/* SECTION HEADER TITLE */}
@@ -57,11 +132,10 @@ export default function TrustReviews() {
         </div>
 
         {/* FADING HORIZONTAL DIVIDER LINE */}
-        {/* Appears solid in the center and smoothly disappears on the sides */}
-        <div className="w-full max-w-[780px] h-[1px] bg-gradient-to-r from-transparent via-slate-200/80 to-transparent mb-8" />
+        <div className="w-full max-w-[780px] h-[1px] bg-gradient-to-r from-transparent via-slate-200/80 to-transparent mb-8 reviews-divider" />
 
-        {/* CAROUSEL WRAPPER WITH NAVIGATION BUTTONS - Decreased margins */}
-        <div className="relative w-full flex items-center justify-between gap-4 md:gap-8 min-h-[140px] mb-6">
+        {/* CAROUSEL WRAPPER WITH NAVIGATION BUTTONS */}
+        <div className="relative w-full flex items-center justify-between gap-4 md:gap-8 min-h-[140px] mb-6 reviews-carousel-row">
           
           {/* Left Arrow Button */}
           <button 
@@ -82,7 +156,7 @@ export default function TrustReviews() {
           </button>
 
           {/* Core Content Box Viewport */}
-          <div className="max-w-[680px] mx-auto px-2 transition-all duration-300 ease-in-out">
+          <div className="max-w-[680px] mx-auto px-2 transition-all duration-300 ease-in-out reviews-text-container">
             <p className="text-slate-500/90 text-[14.5px] md:text-[15.5px] leading-[24px] md:leading-[26px] font-normal tracking-normal text-center">
               {reviews[activeIndex].text}
             </p>
@@ -108,8 +182,8 @@ export default function TrustReviews() {
 
         </div>
 
-        {/* REVIEWER CREDENTIALS & STARS META - Tight margins */}
-        <div className="flex items-center gap-3.5 text-left justify-center mb-10">
+        {/* REVIEWER CREDENTIALS & STARS META */}
+        <div className="flex items-center gap-3.5 text-left justify-center mb-10 reviews-meta-block">
           {/* Profile Image Avatar */}
           <div className="w-14 h-14 rounded-full overflow-hidden border border-slate-100 shadow-sm shrink-0">
             <img 
@@ -150,20 +224,43 @@ export default function TrustReviews() {
           </div>
         </div>
 
-        {/* CAROUSEL SLIDER DOT TRACKER */}
-        <div className="flex items-center gap-2 justify-center">
-          {reviews.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setActiveIndex(idx)}
-              className={`h-2 transition-all duration-300 rounded-full ${
-                idx === activeIndex 
-                  ? "w-7 bg-[#00A3E0]" 
-                  : "w-2 bg-[#E2E8F0] hover:bg-[#CBD5E1]"
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
+        {/* COMBINED MOBILE CONTROLS TRACK: Nav links and dots rendered together natively */}
+        <div className="reviews-mobile-controls-row">
+          <button 
+            onClick={handlePrev} 
+            className="reviews-mobile-btn reviews-mobile-btn-prev"
+            aria-label="Previous review"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+          </button>
+
+          {/* CAROUSEL SLIDER DOT TRACKER */}
+          <div className="flex items-center gap-2 justify-center">
+            {reviews.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveIndex(idx)}
+                className={`h-2 transition-all duration-300 rounded-full ${
+                  idx === activeIndex 
+                    ? "w-7 bg-[#00A3E0]" 
+                    : "w-2 bg-[#E2E8F0] hover:bg-[#CBD5E1]"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+
+          <button 
+            onClick={handleNext} 
+            className="reviews-mobile-btn reviews-mobile-btn-next"
+            aria-label="Next review"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0 7.5 7.5M21 12H3" />
+            </svg>
+          </button>
         </div>
 
       </div>
