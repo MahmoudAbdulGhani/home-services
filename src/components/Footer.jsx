@@ -20,16 +20,32 @@ export default function Footer() {
           </div>
 
           {/* INNER INPUT PILL FRAME CONTAINER */}
-          <div className="flex bg-white rounded-full p-1.5 w-full lg:w-[460px] items-center shadow-inner shrink-0">
-            <input
-              type="email"
-              placeholder="Enter email address"
-              className="flex-1 bg-transparent pl-5 pr-4 py-2.5 text-slate-700 outline-none text-[14px] placeholder:text-slate-300 font-normal"
-            />
-            <button className="bg-[#15B2F5] hover:bg-[#119cd9] transition-colors duration-200 px-7 py-3 rounded-full text-white font-bold text-[14px] tracking-tight focus:outline-none shrink-0">
-              Subscribe
-            </button>
-          </div>
+         <div className="flex bg-white rounded-full p-1.5 w-full max-w-[460px] items-center shadow-inner">
+  <input
+    type="email"
+    placeholder="Enter email address"
+    className="flex-1 min-w-0 bg-transparent pl-4 md:pl-5 pr-2 py-2.5 text-slate-700 outline-none text-[13px] md:text-[14px] placeholder:text-slate-300"
+  />
+
+  <button
+    className="
+      bg-[#15B2F5]
+      hover:bg-[#119cd9]
+      transition-colors
+      duration-200
+      px-4 md:px-7
+      py-3
+      rounded-full
+      text-white
+      font-bold
+      text-[12px] md:text-[14px]
+      whitespace-nowrap
+      shrink-0
+    "
+  >
+    Subscribe
+  </button>
+</div>
         </div>
 
         {/* ───── MAIN FOOTER CONTENT ───── */}

@@ -225,7 +225,7 @@ export default function Hero() {
       </div>
 
       {/* 3. WHITE BASELINE MASK CUTOUT */}
-   {/* Desktop Border */}
+   {/* Web Border */}
 <div
   className="hidden lg:block w-full absolute bottom-0 inset-x-0 h-8 bg-white pointer-events-none z-20"
   style={{
