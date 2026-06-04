@@ -150,8 +150,7 @@ export default function Hero() {
             </div>
 
             {/* DESKTOP ROW VIEW - Borders completely clean with mockup gradient shadow indicators */}
-            <div className="hidden lg:flex justify-center items-center text-[13px] font-semibold text-slate-300 flex-wrap lg:flex-nowrap gap-y-4">
-              
+<div className="hidden lg:flex justify-center items-center text-[13px] font-semibold text-slate-300 flex-wrap lg:flex-nowrap gap-y-4 -translate-y-12">              
               {/* Feature 1: Satisfaction Guarantee */}
               <div className="flex flex-row items-center gap-3 px-4 grow justify-center lg:justify-start text-left">
                 <div className="w-8 h-8 rounded-full bg-[#1b2d6e] flex items-center justify-center shrink-0">
@@ -226,12 +225,23 @@ export default function Hero() {
       </div>
 
       {/* 3. WHITE BASELINE MASK CUTOUT */}
-      <div 
-        className="w-full absolute bottom-0 inset-x-0 h-8 bg-white pointer-events-none z-20 hidden lg:block"
-        style={{
-          clipPath: "polygon(0% 0%, 22% 0%, 24% 100%, 76% 100%, 78% 0%, 100% 0%, 100% 100%, 0% 100%)"
-        }}
-      ></div>
+   {/* Desktop Border */}
+<div
+  className="hidden lg:block w-full absolute bottom-0 inset-x-0 h-8 bg-white pointer-events-none z-20"
+  style={{
+    clipPath:
+      "polygon(0% 0%, 22% 0%, 24% 100%, 76% 100%, 78% 0%, 100% 0%, 100% 100%, 0% 100%)"
+  }}
+></div>
+
+{/* Mobile + Tablet Border */}
+<div
+  className="block lg:hidden w-full absolute bottom-0 inset-x-0 h-8 bg-white pointer-events-none z-20"
+  style={{
+    clipPath:
+      "polygon(0% 0%, 10% 0%, 20% 100%, 80% 100%, 90% 0%, 100% 0%, 100% 100%, 0% 100%)"
+  }}
+></div>
 
     </section>
   );
